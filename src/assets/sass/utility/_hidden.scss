@@ -1,0 +1,12 @@
+
+.hidden-pc {
+    @media (min-width: 768px) {
+      display: none;
+    }
+}
+
+.hidden-sp {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}

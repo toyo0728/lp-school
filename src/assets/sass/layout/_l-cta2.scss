@@ -1,0 +1,76 @@
+@use '../global' as v;
+
+.l-cta2 {
+  padding: 120px 10px;
+  position: relative;
+  overflow: hidden;
+  background: url(../img/cta2-bg.webp) no-repeat center center / cover;
+  background-attachment: fixed;
+
+  @media (max-width: 767px) {
+    padding: 80px 0;
+    background-attachment: scroll;
+    background-position: center center;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 0;
+  }
+}
+
+.l-cta2 .l-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.l-cta2__wrap {
+  max-width: 880px;
+  margin-inline: auto;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  border-radius: 20px;
+  background: v.$gray-bg;
+
+  @media (max-width: 767px) {
+    gap: 17px;
+  }
+}
+
+.l-cta2__contents {
+  display: flex;
+  gap: 40px;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.l-cta2-telWrap {
+  text-align: center;
+}
+
+.l-cta2-tel img {
+  @media (max-width: 767px) {
+    width: 22.354px;
+    height: 32.999px;
+  }
+}
+
+.l-cta2-contactWrap {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @media (max-width: 767px) {
+    gap: 6px;
+  }
+}

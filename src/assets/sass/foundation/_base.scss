@@ -1,0 +1,9 @@
+@use '../global' as v;
+
+body {
+  color: v.$text-main;
+  background: v.$white;
+  font-family: v.$font-jp;
+  font-size: 16px;
+  line-height: 1.6;
+}

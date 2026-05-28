@@ -1,0 +1,50 @@
+@use '../global' as v;
+
+.c-fixed-contact {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .c-fixed-contact {
+    position: fixed;
+    right: 14px;
+    bottom: 14px;
+    z-index: 1000;
+
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: v.$main-color;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: 0.3s;
+  }
+
+  .c-fixed-contact__icon {
+    margin-block-end: 4px;
+  }
+
+  .c-fixed-contact__icon img {
+    width: 15px;
+    height: auto;
+    display: block;
+  }
+
+  .c-fixed-contact__text {
+    font-size: 10px;
+  }
+
+  .c-fixed-contact.is-show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}

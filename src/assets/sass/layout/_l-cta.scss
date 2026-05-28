@@ -1,0 +1,56 @@
+@use '../global' as v;
+
+.l-cta {
+  position: relative;
+  padding: 120px 80px;
+  overflow: hidden;
+
+  background: url(../img/cta-bg1.webp) no-repeat center center / cover;
+  background-attachment: fixed;
+
+  @media (max-width: 767px) {
+    padding-block: 80px;
+    padding-inline: 0;
+    background-attachment: scroll;
+    background-position: center center;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+.l-cta__inner {
+  position: relative;
+  z-index: 1;
+  width: min(640px, 100%);
+  margin-inline: auto;
+}
+
+.l-cta__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+
+  @media (max-width: 767px) {
+    gap: 16px;
+  }
+}
+
+.l-cta__contact {
+  display: flex;
+  justify-content: center;
+  margin-block-start: 32px;
+
+  @media (max-width: 767px) {
+    margin-block-start: 28px;
+  }
+}

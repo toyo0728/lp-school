@@ -1,0 +1,130 @@
+@use '../global' as v;
+
+.p-course-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), #ecf6f9;
+  z-index: 0;
+}
+
+.p-course-modal__close {
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: v.$text-main;
+  color: v.$white;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+
+  @media (max-width: 767px) {
+    top: 26px;
+    right: 9px;
+  }
+}
+
+.p-course-modal__icon {
+  width: 122px;
+  height: 167px;
+
+  @media (max-width: 767px) {
+    width: 73px;
+    height: 101px;
+  }
+}
+
+.p-course-modal__title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 150%; /* 33px */
+  letter-spacing: 1.1px;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    letter-spacing: 0.9px;
+    margin-inline: auto;
+  }
+}
+
+.p-course-modal__lead {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 180%; /* 28.8px */
+  letter-spacing: 0.8px;
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+    letter-spacing: 0.75px;
+  }
+}
+
+.p-course-modal__plans {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+}
+
+.p-course-modal__plan {
+  display: grid;
+  gap: 10px;
+  padding-block-end: 19px;
+
+  @media (max-width: 767px) {
+    gap: 0px;
+    padding-block-end: 51px;
+  }
+}
+
+.p-course-modal__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 37px;
+  padding: 4px 0;
+  border-radius: 4px;
+  background: v.$main-color;
+  color: v.$white;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 180%; /* 28.8px */
+  letter-spacing: 0.8px;
+  text-align: center;
+  white-space: nowrap;
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+  }
+}
+
+.p-course-modal__meta {
+  @media (max-width: 767px) {
+    margin-block-start: 8px;
+  }
+}
+
+.p-course-modal__meta,
+.p-course-modal__price {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 160%; /* 25.6px */
+  letter-spacing: 0.8px;
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+    letter-spacing: 0.75px;
+  }
+}
+
+body.is-fixed {
+  overflow: hidden;
+}

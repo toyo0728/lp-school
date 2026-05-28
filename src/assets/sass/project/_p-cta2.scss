@@ -1,0 +1,43 @@
+@use '../global' as v;
+
+.p-cta2__title {
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 150%; /* 52.5px */
+  letter-spacing: 1.75px;
+
+  @media (max-width: 767px) {
+    font-size: 26px;
+    letter-spacing: 1.3px;
+  }
+}
+
+.p-cta2-tel__title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 180%; /* 28.8px */
+  letter-spacing: 0.8px;
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+    letter-spacing: 0.75px;
+  }
+}
+
+.p-cta2-contact__text {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 160%; /* 32px */
+  letter-spacing: 1px;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    letter-spacing: 0.9px;
+  }
+}
+
+.p-cta2-contact {
+  @media (max-width: 767px) {
+    width: 303px;
+  }
+}

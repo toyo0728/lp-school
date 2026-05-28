@@ -1,0 +1,57 @@
+@use '../global' as v;
+
+.l-footer {
+  padding-block: 60px;
+  background: v.$light-blue;
+}
+
+.l-footer__wrap {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-inline: 20px;
+
+  @media (max-width: 767px) {
+    max-width: 375px;
+  }
+}
+
+.l-footer__item {
+  display: flex;
+  justify-content: space-between;
+  margin-block-end: 20px;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 40px;
+    margin-block-end: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.l-footer__nav {
+  padding-block-end: 32px;
+  border-bottom: 1px solid;
+
+  @media (max-width: 767px) {
+    padding-block-end: 28px;
+  }
+}
+
+.l-footer__item2 {
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: 32px;
+
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+.l-footer-snsWrap {
+  display: flex;
+  gap: 16px;
+}

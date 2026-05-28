@@ -1,0 +1,81 @@
+@use '../global' as v;
+
+.p-mission__logo {
+  width: 260px;
+  height: 148px;
+
+  @media (max-width: 767px) {
+    width: 240px;
+    height: 137px;
+  }
+}
+
+.p-mission__text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 180%; /* 28.8px */
+  letter-spacing: 0.8px;
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+    letter-spacing: 0.75px;
+  }
+}
+
+.p-mission__cardTitle {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 150%; /* 33px */
+  letter-spacing: 1.1px;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    letter-spacing: 0.9px;
+    margin-block-start: -6px;
+  }
+}
+
+.p-mission__cardText {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 160%; /* 25.6px */
+  letter-spacing: 0.8px;
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+    letter-spacing: 0.75px;
+  }
+}
+
+// アニメーション
+.p-mission__textWrap {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.p-mission__textWrap.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.p-mission__card {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.p-mission__card.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.p-mission__card:nth-child(1) { transition-delay: 0.1s; }
+.p-mission__card:nth-child(2) { transition-delay: 0.3s; }
+.p-mission__card:nth-child(3) { transition-delay: 0.5s; }
+.p-mission__card:nth-child(4) { transition-delay: 0.7s; }

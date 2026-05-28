@@ -1,0 +1,146 @@
+@use '../global' as v;
+
+.p-teacher-swiper-slide {
+  width: 352px;
+  height: auto;
+  box-sizing: border-box;
+
+  @media (max-width: 767px) {
+    width: 320px;
+  }
+}
+
+/* =========================
+   card
+========================= */
+.p-teacher-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 466px;
+}
+
+.p-teacher-card__img {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.p-teacher-card__subject {
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  width: 46px;
+  color: v.$white;
+  background: v.$main-color;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.56px;
+}
+
+.p-teacher-card__name {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 150%; /* 33px */
+  letter-spacing: 1.1px;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    letter-spacing: 0.9px;
+  }
+}
+
+.p-teacher-card__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 160%; /* 25.6px */
+  letter-spacing: 0.8px;
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+    letter-spacing: 0.75px;
+  }
+}
+
+/* =========================
+   footer（プログレスバー + ナビ）
+========================= */
+.p-teacher-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 4px;
+}
+
+/* プログレスバー（Swiper pagination type: progressbar） */
+.p-teacher-pagination {
+  position: relative;
+  flex: 1;
+  max-width: 450px;
+  width: 100%;
+  height: 8px !important;
+  border-radius: 0 10px 10px 0;
+  background: rgba(180, 173, 173, 0.5);
+
+  @media (max-width: 767px) {
+    max-width: 150px;
+  }
+
+  &.swiper-pagination-progressbar {
+    overflow: visible;
+  }
+
+  .swiper-pagination-progressbar-fill {
+    background: v.$main-color;
+    border-radius: 10px 0 0 10px;
+  }
+}
+
+/* ナビゲーションボタン */
+.p-teacher-nav {
+  display: flex;
+  align-items: center;
+  gap: 22.286px;
+}
+
+.p-teacher-nav__prev,
+.p-teacher-nav__next {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  width: 39px;
+  height: 39px;
+  margin: 0;
+  background: v.$text-main;
+  border-radius: 50%;
+  transition: opacity 0.2s;
+
+  &::after {
+    content: none;
+  }
+
+  &:hover:not(.swiper-button-disabled) {
+    opacity: 0.7;
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

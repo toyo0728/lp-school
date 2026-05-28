@@ -1,0 +1,148 @@
+@use '../global' as v;
+
+.p-course__icon {
+  width: 122px;
+  height: 167px;
+
+  @media (max-width: 767px) {
+    width: 73px;
+    height: 101px;
+  }
+}
+
+.p-course-tabs {
+  display: flex;
+  gap: 0;
+  width: 100%;
+}
+
+.p-course-tabs__button {
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 0;
+  padding: 20px 10px;
+  border: none;
+  background: v.$gray-bg;
+  color: v.$text-form;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 180%; /* 28.8px */
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  border-radius: 10px 10px 0 0;
+  transition: all 0.3s ease;
+
+  @media (max-width: 767px) {
+    min-width: 168px;
+  }
+
+  @media (max-width: 374px) {
+    min-width: 130px;
+  }
+
+  &:not(.is-active) {
+    transform: translateY(6px);
+  }
+
+  &.is-active {
+    background: v.$white;
+    color: v.$main-color;
+  }
+}
+
+.p-course-panels {
+  background: v.$white;
+  border-radius: 0 0 10px 10px;
+  padding-block: 40px;
+
+  @media (max-width: 767px) {
+    padding-block: 32px;
+  }
+}
+
+.p-course-panel {
+  display: none;
+  width: min(100%, 584px);
+  margin-inline: auto;
+
+  @media (max-width: 767px) {
+    width: min(100%, 335px);
+    padding-inline: 16px;
+  }
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.p-course-panel__title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 150%; /* 33px */
+  letter-spacing: 1.1px;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    letter-spacing: 0.9px;
+    text-align: center;
+  }
+}
+
+.p-course-panel__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 160%; /* 25.6px */
+  letter-spacing: 0.8px;
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+    letter-spacing: 0.75px;
+  }
+}
+
+.p-course-panel__button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  gap: 10px;
+  padding: 12px 22px;
+  border: 2px solid v.$main-color;
+  border-radius: 10px;
+  background-color: v.$main-color;
+  color: v.$white;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 160%;
+  letter-spacing: 0.48px;
+  cursor: pointer;
+  transition:
+    transform 0.5s ease,
+    background-color 0.5s ease;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background: v.$white;
+      border: 2px solid v.$main-color;
+      color: v.$main-color;
+    }
+
+    &:hover::after {
+      background: url('../img/contact-arrow-blue.svg') no-repeat center / contain;
+    }
+  }
+
+  @media (max-width: 767px) {
+    width: 220px;
+    white-space: nowrap;
+  }
+}
+
+.p-course-panel__button::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  background: url('../img/contact-arrow.svg') no-repeat center / contain;
+}

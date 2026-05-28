@@ -1,0 +1,48 @@
+@use '../global' as v;
+
+.l-faq {
+  background: v.$gray-bg;
+}
+
+.l-faq__inner {
+  position: relative;
+}
+
+.l-faq__icon {
+  position: absolute;
+  left: calc(50% + 500px);
+  bottom: -70px;
+
+  @media (max-width: 1300px) {
+    left: calc(50% + 450px);
+  }
+
+  @media (max-width: 1200px) {
+    left: auto;
+    right: 30px;
+    top: -50px;
+    bottom: 0;
+  }
+
+  @media (max-width: 767px) {
+    top: -10px;
+  }
+}
+
+.l-faq__title {
+  @media (max-width: 767px) {
+    align-items: start;
+  }
+}
+
+.l-faq__items {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: 67px;
+  gap: 32px;
+
+  @media (max-width: 767px) {
+    margin-block-start: 40px;
+    gap: 35px;
+  }
+}

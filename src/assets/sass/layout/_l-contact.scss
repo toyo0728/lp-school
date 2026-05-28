@@ -1,0 +1,14 @@
+@use "../global" as v;
+
+.l-contact__form {
+    width: 100%;
+    margin-block-start: 60px;
+
+    @media (max-width: 767px) {
+      margin-block-start: 39px;
+    }
+}
+
+.l-contact__inner {
+  display: grid;
+}

@@ -1,0 +1,366 @@
+@use '../global' as v;
+
+.p-mv__image {
+  overflow: hidden;
+  width: calc(1000 / 1440 * 100%);
+  max-width: 100%;
+  aspect-ratio: 1000 / 650;
+  display: block;
+  margin-left: auto;
+  clip-path: circle(75% at 50% 50%);
+  will-change: clip-path, opacity, transform;
+  border-radius: 0 0 0 20px;
+
+  /* 追加 */
+  opacity: 0;
+  transform: scale(1.05);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.15);
+    will-change: transform;
+  }
+
+  @media (max-width: 1000px) {
+    width: calc(335 / 375 * 100%);
+    max-width: 100%;
+    aspect-ratio: 335 / 228;
+    margin-inline: auto;
+    border-radius: 0 0 0 7.018px;
+  }
+}
+
+.p-mv__title {
+  font-size: calc(50 / 1440 * 100vw);
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 1.5px;
+  opacity: 0;
+  transform: translateY(32px);
+  will-change: transform, opacity;
+
+  @media (max-width: 1000px) {
+    font-size: 40px;
+    letter-spacing: 1.2px;
+  }
+
+  @media (max-width: 374px) {
+    font-size: 30px;
+  }
+}
+
+.p-mv__title--yellow {
+  color: v.$accent-yellow;
+  font-size: calc(50 / 1440 * 100vw);
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 1.5px;
+
+  @media (max-width: 1000px) {
+    font-size: 40px;
+    letter-spacing: 1.2px;
+  }
+
+  @media (max-width: 374px) {
+    font-size: 30px;
+  }
+}
+
+.p-mv__subTitle {
+  font-size: calc(24 / 1440 * 100vw);
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 1.2px;
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(-16px);
+  will-change: transform, opacity, clip-path;
+
+  @media (max-width: 1000px) {
+    font-size: 18px;
+    letter-spacing: 0.9px;
+  }
+}
+
+.p-mv__text {
+  font-size: 20px;
+  width: 100%;
+  font-weight: 700;
+  line-height: 160%;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  opacity: 0;
+  text-align: center;
+  transform: translateY(16px) scale(0.96);
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+
+  @media (min-width: 1600px) {
+    font-size: 25px;
+  }
+
+  @media (max-width: 1000px) {
+    font-size: 18px;
+    letter-spacing: 0.9px;
+  }
+}
+
+.p-mv__contact {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  /* ボタン本体も少し後から出す */
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: transform, opacity;
+}
+
+.p-mv__shine {
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.18) 35%,
+    rgba(255, 255, 255, 0.75) 50%,
+    rgba(255, 255, 255, 0.18) 65%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-24deg);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+}
+
+.swiper-pagination.p-mv-swiper-pagination {
+  width: auto;
+  left: 65.3%;
+
+  @media (max-width: 1000px) {
+    top: auto;
+    left: 50%;
+  }
+}
+
+.p-mv-swiper-pagination {
+  position: absolute;
+  z-index: 10;
+  bottom: -24px !important;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  @media (max-width: 1000px) {
+    bottom: -20px !important;
+  }
+}
+
+.p-mv-swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid v.$main-color;
+  opacity: 1;
+  margin: 0 !important;
+}
+
+.p-mv-swiper-pagination .swiper-pagination-bullet-active {
+  background-color: v.$main-color;
+}
+
+/* =========================
+   MV発火
+========================= */
+.p-mv.is-show {
+  /* 1. 画像 */
+  .p-mv__image {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity 0.9s ease,
+      transform 1.2s ease;
+  }
+
+  /* 2. タイトル */
+  .p-mv__title {
+    animation: mvTitleUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
+  }
+
+  /* 3. サブタイトル */
+  .p-mv__subTitle {
+    animation: mvSubTitleReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards;
+  }
+
+  /* 4. テキスト */
+  .p-mv__text {
+    animation:
+      mvTextIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.15s forwards,
+      mvTextBounce 4s ease-in-out 4.2s infinite;
+  }
+
+  /* 5. ボタン */
+  .p-mv__contact {
+    animation: mvContactIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.35s forwards;
+
+    .p-mv__shine {
+      animation: mvContactShine 4s ease-in-out 2.8s infinite;
+    }
+  }
+}
+
+.p-mv-swiper,
+.p-mv-swiper-wrapper {
+  overflow: hidden;
+}
+
+.p-mv-swiper-slide {
+  position: relative;
+}
+
+/* 初回演出中は全部隠す */
+.p-mv:not(.is-intro-done) .p-mv-swiper-slide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* 表示中の1枚だけ見せる */
+.p-mv:not(.is-intro-done) .p-mv-swiper-slide.is-first {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+/* 初回演出後は通常表示に戻す */
+.p-mv.is-intro-done .p-mv-swiper-slide {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 初回だけ円形 → 開く */
+.p-mv-swiper-slide.is-first .p-mv__image {
+  clip-path: circle(12% at 50% 50%);
+  animation: mvClipReveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ズームは毎回 */
+.p-mv-swiper-slide.is-animated .p-mv__image img {
+  animation: mvZoomOut 4s linear forwards;
+}
+
+/* =========================
+   keyframes
+========================= */
+@keyframes mvTitleUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mvSubTitleReveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes mvTextIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mvTextBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(-8px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-3px);
+  }
+  60% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes mvContactIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mvContactShine {
+  0% {
+    left: -30%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  35% {
+    left: 120%;
+    opacity: 1;
+  }
+  50%,
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+}
+
+@keyframes mvClipReveal {
+  from {
+    clip-path: circle(12% at 50% 50%);
+  }
+  to {
+    clip-path: circle(75% at 50% 50%);
+  }
+}
+
+@keyframes mvZoomOut {
+  from {
+    transform: scale(1.15);
+  }
+  to {
+    transform: scale(1);
+  }
+}

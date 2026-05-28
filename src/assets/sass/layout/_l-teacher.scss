@@ -1,0 +1,71 @@
+@use '../global' as v;
+
+.l-teacher {
+  background: v.$gray-bg;
+  overflow-x: clip;
+}
+
+.l-teacher-swiper-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.l-teacher-swiper {
+  padding-block-end: 60px;
+
+  @media (max-width: 767px) {
+    padding-block-end: 24px;
+  }
+}
+
+.l-teacher .l-teacher-swiper-container {
+  position: relative;
+  width: calc(100% + max((100vw - 1240px) / 2, 20px));
+  overflow: hidden;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    margin-block-start: -20px;
+  }
+}
+
+.l-teacher .l-teacher-swiper {
+  overflow: visible;
+  padding-right: 158px;
+
+  @media (max-width: 1100px) {
+    padding-right: 0;
+  }
+}
+
+.l-teacher__title {
+  margin-block-end: 60px;
+}
+
+.l-teacher-contents {
+  margin-block-start: 16px;
+}
+
+.l-teacher-card__subjectWrap {
+  display: flex;
+  gap: 8px;
+}
+
+.l-teacher-card__textWrap {
+  margin-block-start: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.l-teacher-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline-end: 100px;
+
+  @media (max-width: 767px) {
+    padding-inline: 0;
+  }
+}

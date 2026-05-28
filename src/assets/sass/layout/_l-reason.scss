@@ -1,0 +1,54 @@
+@use '../global' as v;
+
+.l-reason {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+    url('../img/reason-bg.webp') center / cover no-repeat;
+}
+
+.l-reason-inner {
+  position: relative;
+}
+
+.l-reason__contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+
+  @media (max-width: 1150px) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.l-reason__titleWrap {
+  position: sticky;
+  top: 120px;
+  align-self: flex-start;
+  flex-shrink: 0;
+
+  @media (max-width: 1150px) {
+    position: static;
+    width: 100%;
+  }
+}
+
+.l-reason__title {
+  margin-block-end: 60px;
+}
+
+.l-reason__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-width: 0;
+
+  @media (max-width: 1150px) {
+    margin-inline: auto;
+  }
+
+  @media (max-width: 767px) {
+    margin-block-start: -20px;
+  }
+}

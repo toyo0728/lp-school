@@ -1,0 +1,9 @@
+@use "../global" as v;
+
+.l-section {
+  padding-block: 120px;
+
+  @media (max-width: 767px) {
+    padding-block: 80px;
+  }
+}

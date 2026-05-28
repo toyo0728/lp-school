@@ -1,0 +1,70 @@
+@use '../global' as v;
+
+.l-mission {
+  background: v.$gray-bg;
+}
+
+.l-mission__textWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.l-mission-cards {
+  margin-block-start: 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 288px);
+  justify-content: center;
+  align-items: center;
+
+  /* 4×288px=1152px + inner の左右padding40px → 1192px 未満では4列が入らない */
+  @media (max-width: 1191px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-inline: auto;
+  }
+
+  @media (max-width: 767px) {
+    margin-block-start: 20px;
+    grid-template-columns: auto;
+  }
+}
+
+.l-mission__card {
+  width: 288px;
+  height: 313px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  border-right: 1px dashed var(--gray, #b4adad);
+
+  @media (max-width: 1191px) {
+    border-right: none;
+  }
+
+  @media (max-width: 767px) {
+    width: 335px;
+    height: 307px;
+    padding-inline: 12px;
+    border-bottom: 1px dashed var(--gray, #B4ADAD);
+  }
+
+  @media (max-width: 374px) {
+    width: 300px;
+  }
+}
+
+.l-mission__cardWrap {
+  width: 240px;
+  margin-block-start: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media (max-width: 767px) {
+    gap: 8px;
+    width: 100%;
+  }
+}
